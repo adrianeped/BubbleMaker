@@ -1,0 +1,9 @@
+.bubble{
+    border-radius: 50%;
+    border: 5px solid blue;
+    width: 20px;
+    height: 20px;
+}
+.container{
+    display: flex;
+}
