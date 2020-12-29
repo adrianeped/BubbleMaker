@@ -44,6 +44,14 @@
 
 }
 
+.warning-message{
+    color: red;
+    background-color: rgb(233, 225, 225);
+    position: absolute;
+    left: 530px;
+    top: 50px
+}
+
 .remove{
     position: absolute;
     left: 580px;

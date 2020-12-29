@@ -8,7 +8,6 @@ const getRandomPosition = () => {
 }
 
 const createBubble = () => {
-    //alert ("criou o bubble");
     const bubble = document.createElement("div");
     const position = getRandomPosition();
     bubble.style["top"] = position.top;
@@ -20,18 +19,37 @@ const createBubble = () => {
 const addBubble = () => {
     const bubble = createBubble();
     const container = document.getElementById("container");
+    const warningMessage = document.getElementById("warning-message");
+
+    if (warningMessage){
+        container.removeChild(warningMessage);
+    }
     container.appendChild(bubble);
 }
 
+const createWarningMessage = (message) => {
+    const warningMessage = document.createElement("spam");
+    warningMessage.innerText = message;
+    warningMessage.className = "warning-message";
+    warningMessage.id = "warning-message";
+    return warningMessage;
+}
+
 const removeBubble = () => {
-    const bubble = document.getElementById("container");
-    bubble.removeChild(bubble.lastChild);
+    const container = document.getElementById("container");
+
+    if (container.firstChild){
+        container.removeChild(container.lastChild);
+    } else{
+        const warningMessage = createWarningMessage("There is no bubbles to remove!");
+        container.appendChild(warningMessage);
+    }
 }
 
 const removeAllBubble = () => {
-    const bubble = document.getElementById("container");
-    while (bubble.firstChild) {
-        bubble.removeChild(bubble.lastChild);
+    const container = document.getElementById("container");
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
     }
 }
 
