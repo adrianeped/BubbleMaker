@@ -1,9 +1,30 @@
 .bubble{
     border-radius: 50%;
-    border: 5px solid blue;
+    border: 5px solid pink;
     width: 20px;
     height: 20px;
+    position: fixed;
 }
+
+
 .container{
     display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.add{
+    position: absolute;
+    left: 600px;
+}
+
+.remove{
+    position: absolute;
+    left: 650px;
+}
+
+.removeall{
+    position: absolute;
+    left: 610px;
+    top: 40px
 }
