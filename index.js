@@ -3,19 +3,42 @@ const getRandomPosition = () => {
     const ww = window.innerWidth * Math.random();
     const whInt = parseInt(wh);
     const wwInt = parseInt(ww);
-    console.log({top: `${whInt}px`, left: `${wwInt}px`});
     return {top: `${whInt}px`, left: `${wwInt}px`};
 }
 
+const getColor = () => {
+    const colorInput = document.getElementById("color-input");
+    const color = colorInput.value;
+    return color;
+}
+
+const getSize = () => {
+    const sizeInput = document.getElementById("size-input");
+    const size = sizeInput.value;
+    return `${size}px`;
+}
+
 const createBubble = () => {
+    const color = getColor();
+    const size = getSize();
     const bubble = document.createElement("div");
     const position = getRandomPosition();
     bubble.style["top"] = position.top;
     bubble.style["left"] = position.left;
     bubble.classList.add("bubble");
     bubble.id = new Date();
+    bubble.style["borderColor"] = color;
+    bubble.style["height"] = size;
+    bubble.style["width"] = size;
+    bubble.addEventListener("click", (e) => {
+        const container = document.getElementById("container");
+        const target = e.target;
+        container.removeChild(target);
+    });
+
     return bubble;
 }
+
 const addBubble = () => {
     const bubble = createBubble();
     const container = document.getElementById("container");
